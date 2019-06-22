@@ -15,8 +15,7 @@ app.get(
   }
 );
 
-app.get(
-  "/user/:id",
+app.get("/user/:id", [
   function(req, res, next) {
     console.log("pretty special");
     next("route");
@@ -24,7 +23,7 @@ app.get(
   function(req, res, next) {
     res.send("special");
   }
-);
+]);
 
 // handler for the /user/:id path, which sends a special response
 app.get("/user/:id", function(req, res, next) {
